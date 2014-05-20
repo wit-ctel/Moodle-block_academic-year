@@ -60,15 +60,6 @@ class block_academic_year extends block_base {
     }
     
     /**
-     * Sets block header to be hidden or visible
-     *
-     * @return bool if true then header will be visible.
-     */
-    public function hide_header() {
-      return true;
-    }
-    
-    /**
      * Locations where block can be displayed
      *
      * @return array
