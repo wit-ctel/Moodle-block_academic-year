@@ -48,9 +48,14 @@ class block_academic_year_renderer extends plugin_renderer_base {
         
         $html = '';
         
-        $html .= html_writer::start_tag('div', array('id' => 'academic_year'));
+        $html .= html_writer::start_tag('div', array('class' => 'well well-sm'));
+        $html .= html_writer::start_tag('div', array('id' => 'academic_year', 'class' => 'form-horizontal'));
         
-        $html .= html_writer::tag('h3', get_string('selectacademicyear', 'block_academic_year'), array('class' => 'label'));
+        $html .= html_writer::start_tag('div', array('class' => 'form-group'));       
+        $html .= html_writer::tag('label', get_string('selectacademicyear', 'block_academic_year'), 
+                                  array('class' => 'control-label col-sm-3'));
+        
+        $html .= html_writer::start_tag('div', array('class' => 'col-sm-9'));
         
         $html .= $this->output->single_select(new moodle_url($CFG->wwwroot.'/blocks/academic_year/year.php'), 
                                                 'academicyear', 
@@ -58,7 +63,10 @@ class block_academic_year_renderer extends plugin_renderer_base {
                                                 $current_academic_year_id,
                                                 '');
         
+        $html .= html_writer::end_tag('div'); // form-group
+        $html .= html_writer::end_tag('div'); // form-group
         $html .= html_writer::end_tag('div'); // academic_year
+        $html .= html_writer::end_tag('div'); // well
         return $html;
     }
     
