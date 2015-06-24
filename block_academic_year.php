@@ -45,7 +45,7 @@ class block_academic_year extends block_base {
      */
     public function get_content() {
         if ($this->content !== null) {
-          return $this->content;
+              return $this->content;
         }
  
         $this->content         =  new stdClass;
@@ -57,6 +57,15 @@ class block_academic_year extends block_base {
         $this->content->text = $renderer->academic_year($academic_years);
         
         return $this->content;
+    }
+    
+    /**
+     * Sets block header to be hidden or visible
+     *
+     * @return bool if true then header will be visible.
+     */
+    public function hide_header() {
+      return true;
     }
     
     /**
